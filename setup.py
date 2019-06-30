@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="setup_log",
-    version="0.0.1",
+    version="0.0.2",
     author="Wenbo Zhao",
     author_email="zhaowb@gmail.com",
     description="A simple log setup helper",
