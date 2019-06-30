@@ -1,26 +1,26 @@
 """helper to setup logging to write log file for simple usage.
 eg:
 ```
-from simple_log import simple_log
-simple_log('myapp')
+from setup_log import setup_log
+setup_log('myapp')
 ```
 log to file 'myapp.%F.%H%M%S.log' with format
     '%(asctime)s.%(msecs)03d %(levelname)s %(name)s %(funcName)s %(message)s'
 and datefmt
     '%Y-%m-%d.%H:%M:%S'
-`simple_log(console_level=99)` to disable console output
-`simple_log(file_level=99)` to disable file output
+`setup_log(console_level=99)` to disable console output
+`setup_log(file_level=99)` to disable file output
 """
 import logging
 import logging.config
 import time
 
-name = 'simple_log'
+name = 'setup_log'
 
-def simple_log(file_prefix='log',
-               file_strftime='%F.%H%M%S',
-               console_level=logging.DEBUG,
-               file_level=logging.DEBUG):
+def setup_log(file_prefix='log',
+              file_strftime='%F.%H%M%S',
+              console_level=logging.DEBUG,
+              file_level=logging.DEBUG):
     """setup logging, log file will be prefix-file_strftime.log
     to disable console output, set console_level=logging.CRITICAL+1
     """
@@ -76,8 +76,8 @@ def simple_log(file_prefix='log',
 
 if __name__ == '__main__':
     #pylint: disable=invalid-name
-    # as test, run `python3 -m simple_log.__init__`
-    simple_log('test-logger')
+    # as test, run `python3 -m setup_log.__init__`
+    setup_log('test-logger')
     log = logging.getLogger('app')
     log.info('here is my log')
     log.critical('BAD things happened')
